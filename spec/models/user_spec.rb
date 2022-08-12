@@ -20,11 +20,6 @@ RSpec.describe User, type: :model do
       subject.posts_counter = 'text'
       expect(subject).to_not be_valid
     end
-
-    # it ':most_recent_posts should return 3 recent posts' do
-    #   3.times { Post.create(author: subject, title: 'Title1', text: 'This is a post') }
-    #   expect(subject.most_recent_posts.length).to eq(3)
-    # end
   end
 
   describe 'Should test recent post method' do

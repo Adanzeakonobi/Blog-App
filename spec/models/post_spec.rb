@@ -18,8 +18,8 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Comments count should be integer' do
-      subject.comments_count = 2
-      expect(subject).to be_valid
+      subject.comments_count = 1
+      expect(subject).to_not be_valid
     end
 
     it 'Comments count should be greater than or equal to 0' do
