@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Should test recent post method' do
-    before { 4.times { |post| Post.create(author: subject, title: "my first post") } }
+    before { 4.times { |_post| Post.create(author: subject, title: 'my first post') } }
 
     it 'User should have three recent posts' do
       expect(subject.most_recent_posts).to eq(subject.posts.last(3))
