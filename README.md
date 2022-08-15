@@ -4,7 +4,6 @@
 
 > The Blog app is a classic example of a blog website.
 
-
 ## Built With
 
 - Rails
