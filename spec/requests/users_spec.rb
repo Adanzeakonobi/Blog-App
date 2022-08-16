@@ -16,7 +16,7 @@ RSpec.describe UsersController, type: :request do
       expect(response.body).to include("here is a list of users")
     end
   end
-  
+
   describe "when client displays a single user (#show)" do
     # subject(:author) {User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')}
     user = User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')
@@ -30,12 +30,12 @@ RSpec.describe UsersController, type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    # it "Renders the correct template" do
-    #   expect(response).to render_template(:show)
-    # end
+    it "Renders the correct template" do
+      expect(response).to render_template(:show)
+    end
 
-    # it "has the correct placeholder text" do
-    #   expect(response.body).to include("show first user")
-    # end
+    it "has the correct placeholder text" do
+      expect(response.body).to include("show first user")
+    end
   end
 end
