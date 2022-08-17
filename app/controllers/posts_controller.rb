@@ -4,11 +4,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    # @post = if Post.all.empty?
-    #   'no post available!'
-    # else
-    #   Post.find(params[:id])
-    # end
+    @post = if Post.all.empty?
+      'no post available!'
+    else
+      Post.find(params[:id])
+    end
   end
 end

@@ -18,20 +18,16 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe "when client displays a single user (#show)" do
-    # subject(:author) {User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')}
-    user = User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')
+    subject(:author) {User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')}
 
-    before(:each) { get "/users/#{user.id}" }
-
-    # before(:example) { get "#{users_path}/#{author.id}" }
-    # after(:example) { User.destroy_all }
+    before(:each) { get "/users/#{author.id}" }
 
     it "should return a correct (OK) status response" do
       expect(response).to have_http_status(:ok)
     end
 
     it "Renders the correct template" do
-      expect(response).to render_template(:show)
+      expect(response).to render_template("show")
     end
 
     it "has the correct placeholder text" do

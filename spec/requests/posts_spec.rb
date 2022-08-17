@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-    # user = User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.')
 
-    let(:author) { User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.') }
-    subject(:post) { Post.create(author: user, title: 'Ada', text: 'My first post') }
+    let(:author) { User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.', posts_counter: 0) }
+    subject(:post) { Post.create(author: author, title: 'Ada', text: 'My first post', likes_count: 0, comments_count: 0) }
 
     after(:example) do
         Post.destroy_all
@@ -12,10 +11,9 @@ RSpec.describe PostsController, type: :request do
     end
 
   describe "when client displays all post from users (#index)" do
-    # before(:each) { get "/users/#{user.id}/posts" }
 
-    before(:example) do 
-        get "#{users_path}/#{author.id}/posts"
+    before(:example) do
+        get "/users/#{author.id}/posts"
     end
 
     it "successfully gets an index" do
@@ -32,11 +30,8 @@ RSpec.describe PostsController, type: :request do
   end
 
   describe "when client displays a single user (#show)" do
-    # post = Post.create(author: user, title: 'Ada', text: 'My first post')
-
-    # before(:each) { get "/users/#{user.id}/posts/#{post.id}" }
     before(:example) do
-        get "#{users_path}/#{author.id}/posts/#{post.id}"
+        get "/users/#{author.id}/posts/#{post.id}"
       end
 
     it "should return a correct (OK) status response" do
