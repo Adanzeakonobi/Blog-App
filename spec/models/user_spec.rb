@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   describe 'User validations' do
     subject(:author) { User.create(name: 'Ada', photo: 'ada.png', bio: 'Student.') }
 
-    after(:all) {User.destroy_all}
+    after(:all) { User.destroy_all }
 
     it 'Check name should be present' do
       author.name = nil
@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
 
     describe 'Should test recent post method' do
       before { 4.times { |_post| Post.create(author:, title: 'my first post') } }
-  
+
       it 'User should have three recent posts' do
         expect(author.most_recent_posts.length).to eq 3
       end

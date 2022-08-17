@@ -21,7 +21,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Comments count should be integer' do
-      post.comments_count = "Sam"
+      post.comments_count = 'Sam'
       expect(post).to_not be_valid
     end
 

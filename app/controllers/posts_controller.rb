@@ -5,9 +5,9 @@ class PostsController < ApplicationController
 
   def show
     @post = if Post.all.empty?
-      'no post available!'
-    else
-      Post.find(params[:id])
-    end
+              'no post available!'
+            else
+              Post.find(params[:id])
+            end
   end
 end
