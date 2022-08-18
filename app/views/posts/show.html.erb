@@ -1,2 +1,4 @@
-<h1>show first post</h1>
-<%= @post %>
+<input type="hidden" value="<%= "show exact post with id: #{@post.id} by User with id: #{@post.author.id}" %>" />
+<div id="authors_part" class="author-div">
+  <%= render @post %>
+</div>
