@@ -13,12 +13,12 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'has the correct placeholder text' do
-      expect(response.body).to include('here is a list of users')
+      expect(response.body).to include('Here is a list of Users')
     end
   end
 
   describe 'when client displays a single user (#show)' do
-    subject(:author) { User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.') }
+    subject(:author) { User.create(name: 'Adanna', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', bio: 'Public Administator.') }
 
     before(:each) { get "/users/#{author.id}" }
 
@@ -31,7 +31,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'has the correct placeholder text' do
-      expect(response.body).to include('show first user')
+      expect(response.body).to include('Show exact User')
     end
   end
 end

@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(:id)
   end
 
   def show
-    @user = if User.all.empty?
-              'no user available!'
-            else
-              User.find(params[:id])
-            end
+    @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 end

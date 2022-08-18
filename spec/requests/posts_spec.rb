@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  let(:author) { User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.', posts_counter: 0) }
+  let(:author) { User.create(name: 'Adanna', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', bio: 'Public Administator.', posts_counter: 0) }
   subject(:post) { Post.create(author:, title: 'Ada', text: 'My first post', likes_count: 0, comments_count: 0) }
 
   after(:example) do
@@ -12,6 +12,7 @@ RSpec.describe PostsController, type: :request do
   describe 'when client displays all post from users (#index)' do
     before(:example) do
       get "/users/#{author.id}/posts"
+      # before(:example) { get user_posts_path(author.id) }
     end
 
     it 'successfully gets an index' do
@@ -41,7 +42,7 @@ RSpec.describe PostsController, type: :request do
     end
 
     it 'has the correct placeholder text' do
-      expect(response.body).to include('show first post')
+      expect(response.body).to include('show exact post')
     end
   end
 end
