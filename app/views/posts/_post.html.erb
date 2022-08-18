@@ -28,7 +28,7 @@
   <% if show_comments && post.comments_count > 0 %>
     <div class="column box">
       <% if show_truncate %>
-        <%= render post.recent_comments %>
+        <%= render post.most_recent_comments %>
       <% else %>
         <%= render post.comments.order(id: :desc) %>
       <% end %>
