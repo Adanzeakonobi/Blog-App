@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.order(id: :desc)
+  rescue ActiveRecord::RecordNotFound
+    redirect_to users_path
   end
 
   def show
@@ -10,5 +14,7 @@ class PostsController < ApplicationController
     #         else
     #           Post.find(params[:id])
     #         end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 end
