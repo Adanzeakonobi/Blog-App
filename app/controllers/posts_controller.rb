@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     p current_user
     @post = Post.new(author_id: current_user.id)
   end
-  
+
   def show
     @post = Post.find(params[:id])
   rescue ActiveRecord::RecordNotFound
