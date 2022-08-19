@@ -5,10 +5,10 @@ class PostsController < ApplicationController
     @post = Post.new(params.require(:post).permit(:author_id, :title, :text))
 
     if @post.save
-      flash[:notice] = 'Post saved successfully'
+      flash[:notice] = 'Post has been saved successfully'
       redirect_to user_path(@post.author_id)
     else
-      flash[:error] = 'Post not saved'
+      flash[:error] = 'Post could not be saved'
       redirect_to new_user_post_path(@post.author_id)
     end
   end
