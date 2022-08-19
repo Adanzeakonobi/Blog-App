@@ -1,0 +1,10 @@
+<% if short_text?(post) %>
+  <div class="row-right">
+    <h4><%= render 'posts/count', post: post %></h4>
+  </div>
+<% end %>
+<div class="row-right">
+  <%= button_to 'New comment', new_user_post_comment_path(post.author.id, post.id), method: :get %>
+    &nbsp;
+    <%= button_to 'Like', user_post_likes_path(post.author, post), method: :post %>
+</div>
