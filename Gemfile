@@ -53,6 +53,8 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '>= 5.0', '< 6.0'
+  gem 'bullet'
+  gem "database_cleaner"
 end
 
 group :development do
@@ -67,4 +69,9 @@ group :development do
 
   # linters
   gem 'rubocop', '>= 1.0', '< 2.0'
+end
+
+group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
 end
