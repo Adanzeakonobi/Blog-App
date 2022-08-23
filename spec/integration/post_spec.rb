@@ -1,22 +1,25 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :integration do
-  let(:author) { User.create(name: 'Adanna', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png', bio: 'Public Administator.', posts_counter: 0) }
-  subject(:post) { Post.create(author:, title: 'Ada', text: 'My first post', likes_count: 0, comments_count: 0) }
+RSpec.describe 'Posts', type: :system do
+  let!(:author) { User.where(name: 'Tom').first }
+  let!(:lilly) { User.where(name: 'Lilly').first }
+  subject!(:post) { Post.where(title: 'Hello 3').first }
+  let!(:comment) { Comment.where(text: 'Hi Tom 4!').first }
 
-  # before(:all) do
-  #   Rails.application.load_seed
-  # end
+  before(:all) do
+    Rails.application.load_seed
+  end
 
-  after(:example) do
+  after(:all) do
+    Like.destroy_all
+    Comment.destroy_all
     Post.destroy_all
     User.destroy_all
   end
 
   describe 'index page:' do
     before(:example) do
-      visit user_posts(author.id)
-      # visit "/users/#{author.id}/posts"
+      visit user_posts_path(author.id)
     end
 
     it 'shows the author\'s profile picture' do
@@ -24,9 +27,20 @@ RSpec.describe 'Posts', type: :integration do
       expect(image.size).to eq(1)
     end
 
-    # it 'shows the author\'s name' do
-    #   expect(page).to have_content(author.name)
-    # end
+    it 'shows the author\'s name' do
+      expect(page).to have_content(author.name)
+    end
 
+    it 'shows the author\'s number of posts' do
+      expect(page).to have_content('Number of posts: 4')
+    end
+
+    it 'shows post\'s title' do
+      expect(page).to have_content(post.title)
+    end
+
+    it 'shows part of the post\'s text' do
+      expect(page).to have_content(post.text[0..50])
+    end
   end
 end
