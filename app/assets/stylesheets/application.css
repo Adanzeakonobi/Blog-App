@@ -26,7 +26,13 @@ h4 {
   margin: 0;
 }
 
+ul {
+  padding: 0;
+}
+
+.author,
 .box,
+.postin,
 .box-no-border {
   margin: 8px;
   padding: 8px;
@@ -49,6 +55,7 @@ h4 {
 .row-justify,
 .row-right {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   min-width: 400px;

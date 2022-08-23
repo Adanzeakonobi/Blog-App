@@ -1,7 +1,9 @@
 <input type="hidden" value="<%= "Show exact User: #{@user.id}" %>" />
-<div id="author_part">
+# <div id="author_part">
   <%= render @user %>
   <%= render 'users/bio' %>
+  <div id="post-list">
   <%= render @user.most_recent_posts %>
+  </div>
   <div class="row-center"><%= link_to(user_posts_path(@user.id)) { 'See all posts' } %></div>
-</div>
+# </div>
