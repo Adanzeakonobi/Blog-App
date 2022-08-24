@@ -25,7 +25,7 @@ development:
   <<: *default
   database: blogapp_development
   username: postgres
-  password: ada.2010
+  password: postgres #ada.2010
   host: localhost
 
   # The specified database role being used to connect to postgres.
@@ -62,7 +62,7 @@ test:
   <<: *default
   database: blogapp_test
   username: postgres
-  password: ada.2010
+  password: postgres #ada.2010
   host: 127.0.0.1
 
 # As with config/credentials.yml, you never want to store sensitive information,
