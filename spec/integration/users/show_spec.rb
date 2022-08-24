@@ -44,6 +44,3 @@ RSpec.describe 'Users', type: :system do
     expect(page).to have_link('', href: '/users/1/posts')
   end
 end
-
-
-

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Post', type: :system do
-it 'shows the username' do
+  it 'shows the username' do
     visit('http://localhost:3000/users/2/posts')
     expect(page).to have_content('Lilly')
   end
