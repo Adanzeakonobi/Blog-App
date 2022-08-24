@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments)
+    @posts = @user.posts.includes([:author])
   rescue ActiveRecord::RecordNotFound
     redirect_to users_path
   end
