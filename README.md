@@ -52,6 +52,12 @@ N/A
 - Twitter: [@twitterhandle](https://twitter.com/Adaebubemmuta)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/okoyeaadaobi)
 
+👤 **Mariana Revilla Lérida**
+
+- GitHub: [@marurevi](https://github.com/marurevi)
+- Twitter: [@MaruRevilla](https://twitter.com/MaruRevilla)
+- LinkedIn: [Mariana-Revilla-Lérida](https://linkedin.com/in/mariana-revilla-l%C3%A9rida-a12aba143)
+
 
 ## 🤝 Contributing
 
