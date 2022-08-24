@@ -43,5 +43,4 @@ RSpec.describe 'Users', type: :system do
     visit('http://localhost:3000/users/1')
     expect(page).to have_link('', href: '/users/1/posts')
   end
-  
 end
