@@ -29,6 +29,19 @@ RSpec.describe 'Users', type: :system do
     expect(page).to have_content('Hello 3')
     expect(page).to have_content('Hello 2')
   end
+  it 'has a "See all posts" button' do
+    visit('http://localhost:3000/users/2')
+    expect(page).to have_selector(:link_or_button, 'See all posts')
+  end
 
+  it 'redirects to the user/post/show page when clicking on a post' do
+    visit('http://localhost:3000/users/2')
+    expect(page).to have_link('Hello 3', href: '/users/2/posts/3')
+  end
+
+  it 'redirects to users/posts index when clicking in "See all posts"' do
+    visit('http://localhost:3000/users/1')
+    expect(page).to have_link('', href: '/users/1/posts')
+  end
   
 end
