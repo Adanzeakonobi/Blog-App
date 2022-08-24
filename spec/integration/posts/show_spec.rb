@@ -29,7 +29,6 @@ RSpec.describe 'Post', type: :system do
   it 'shows the names of each commentor' do
     visit('http://localhost:3000/users/2/posts/3')
     expect(page).to have_content('Lilly')
-    # expect(page).to have_content('Josh')
   end
 
   it 'shows the comments the post has' do
