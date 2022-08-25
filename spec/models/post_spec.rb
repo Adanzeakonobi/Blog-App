@@ -2,7 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe 'Post validations' do
-    let(:author) { User.create(name: 'Romy', bio: 'Public Administator') }
+    # let(:author) { User.create(name: 'Romy', bio: 'Public Administator') }
+
+    let(:author) do
+      user = User.new(name: 'Romy', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+                      bio: 'Public Administator.', email: 'viviluv.20147@gmail.com')
+      user.password = 'valido'
+      user.password_confirmation = 'valido'
+      user.confirm
+      user
+    end
+
     subject(:post) { Post.create(author:, title: 'my first post', text: 'My name is Ada') }
 
     after(:all) do
