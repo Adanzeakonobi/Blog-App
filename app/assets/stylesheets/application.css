@@ -57,15 +57,15 @@ ul {
 
 .actions,
 .actions input {
-  width: 100%
+  width: 100%;
 }
 
 .field input {
-  width: 99%
+  width: 99%;
 }
 
 .field {
-  padding-bottom: 25px
+  padding-bottom: 25px;
 }
 
 .hidden {
