@@ -21,6 +21,10 @@ html {
   padding: 0 10%;
 }
 
+body {
+  width: 100%;
+}
+
 h3,
 h4 {
   margin: 0;
@@ -36,6 +40,7 @@ ul {
 .box-no-border {
   margin: 8px;
   padding: 8px;
+  min-height: 56px;
 }
 
 .box {
@@ -48,6 +53,23 @@ ul {
   justify-content: center;
   min-width: 400px;
   width: 100%;
+}
+
+.actions,
+.actions input {
+  width: 100%
+}
+
+.field input {
+  width: 99%
+}
+
+.field {
+  padding-bottom: 25px
+}
+
+.hidden {
+  display: none;
 }
 
 .row,
